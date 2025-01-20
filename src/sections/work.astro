@@ -213,12 +213,3 @@ const steps = [
     }
   }
 </style>
-
-<script>
-  let totalHeight = document.body.scrollHeight;
-
-  window.addEventListener("scroll", function () {
-    const scrollPercent =
-      (window.pageYOffset / (totalHeight - window.innerHeight)) * 100;
-  });
-</script>
