@@ -1,0 +1,155 @@
+---
+import ArrowRight from "../icons/arrow-right.astro";
+import map from "../../public/images/map.png";
+import Image from "astro/components/Image.astro";
+import Box from "../icons/box.astro";
+
+const boxes = [
+  {
+    x: 145,
+    y: 129,
+    width: 8,
+    height: 8,
+    isFilled: false,
+  },
+  {
+    x: 254,
+    y: 69,
+    width: 12,
+    height: 12,
+    isFilled: false,
+  },
+  {
+    x: 226,
+    y: 215,
+    width: 14,
+    height: 14,
+    isFilled: false,
+  },
+  {
+    x: 260,
+    y: 327,
+    width: 16,
+    height: 16,
+    isFilled: false,
+  },
+  {
+    x: 131,
+    y: 407,
+    width: 22,
+    height: 22,
+    isFilled: false,
+  },
+  {
+    x: 306,
+    y: 450,
+    width: 12,
+    height: 12,
+    isFilled: false,
+  },
+  {
+    x: 165,
+    y: 556,
+    width: 30,
+    height: 30,
+    isFilled: true,
+  },
+  {
+    x: 78,
+    y: 680,
+    width: 14,
+    height: 14,
+    isFilled: false,
+  },
+  {
+    x: 307,
+    y: 670,
+    width: 16,
+    height: 16,
+    isFilled: false,
+  },
+];
+---
+
+<section id="about" class="about wrapper">
+  <h2>О компании «ТЭК Прикамье»</h2>
+  <p class="b1 text1">
+    Транспортная компания ООО «ТЭК Прикамье», ежегодно перевозит грузы
+    автопоездами более 500 тыс. тонн в год, по России и странам СНГ
+  </p>
+  <p class="b1 text2">
+    Наш автопарк состоит из современных автомобилей европейского качества марок
+    Volvo, Scania и Daf, а также новых седельных тягачей от китайского бренда
+    FAW, находящихся в собственности компании
+  </p>
+  <a href="work" class="btn btn-sm btn-primary button-text"
+    >Портфолио<ArrowRight /></a
+  >
+  <div class="map-wrapper">
+    <div class="map">
+      <Image src={map} alt={"Карта коробок"} />
+      {
+        boxes.map(({ x, y, width, height, isFilled }) => (
+          <Box
+            isFilled={isFilled}
+            width={width}
+            height={height}
+            style={{
+              top: `${x}px`,
+              left: `${y}px`,
+            }}
+            class="box"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+<!-- <script>
+  // Установка начальной позиции скролла
+  document.addEventListener("DOMContentLoaded", () => {
+    const mapWrapper = document.querySelector(".map-wrapper");
+    if (mapWrapper) {
+      mapWrapper.scrollLeft = 450;
+    }
+  });
+</script> -->
+<style lang="scss">
+  @use "../styles/abstracts/mixins" as *;
+
+  .about {
+    padding: 43px 20px;
+    .map-wrapper {
+      width: 100%;
+      @include respond-to("desktop") {
+        overflow-x: scroll;
+      }
+      .map {
+        margin-left: auto;
+        width: max-content;
+        position: relative;
+        .box {
+          position: absolute;
+          cursor: pointer;
+        }
+      }
+    }
+    .text1 {
+      width: 720px;
+      margin-top: 32px;
+      @include respond-to("tablet") {
+        width: 100%;
+      }
+    }
+    .text2 {
+      width: 720px;
+      margin-top: 24px;
+      @include respond-to("tablet") {
+        width: 100%;
+      }
+    }
+    a {
+      margin-top: 28px;
+    }
+  }
+</style>

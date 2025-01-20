@@ -1,0 +1,152 @@
+// Colors
+$color-dark: #1b1b1e;
+$color-navy: #203257;
+$color-blue: #2f5b9c;
+$color-light-blue: #e3e7f0;
+$color-gray-dark: #5a5a5a;
+$color-gray-medium: #8c8c8c;
+$color-gray-light: #d1d1d1;
+$color-gray-lighter: #f2f2f2;
+$color-off-white: #fdfdfd;
+$color-white: #ffffff;
+$color-gradient: linear-gradient(-34.112deg, #203257 0%, #2f5fa2 100%);
+
+$typography-vars: (
+  "desktop": (
+    "h1": (
+      "font-size": 40px,
+      "line-height": 52px,
+      "font-family": "LT Wave",
+    ),
+    "h2": (
+      "font-size": 32px,
+      "line-height": 44px,
+      "font-family": "LT Wave",
+    ),
+    "h3": (
+      "font-size": 24px,
+      "line-height": 32px,
+      "font-family": "LT Wave",
+    ),
+    "services": (
+      "font-size": 20px,
+      "line-height": 28px,
+      "font-family": "LT Wave",
+    ),
+    "b1": (
+      "font-size": 20px,
+      "line-height": 28px,
+      "font-family": "Roboto",
+    ),
+    "subtitle": (
+      "font-size": 20px,
+      "line-height": 28px,
+      "font-family": "Roboto",
+    ),
+    "primary-button": (
+      "font-size": 18px,
+      "line-height": 28px,
+      "font-family": "LT Wave",
+    ),
+    "button": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "LT Wave",
+    ),
+    "navigation": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "LT Wave",
+    ),
+    "b2": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "Roboto",
+    ),
+    "b3": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "Roboto",
+    ),
+  ),
+  "tablet": (
+    "h1": (
+      "font-size": 34px,
+      "line-height": 48px,
+      "font-family": "LT Wave",
+    ),
+    "h2": (
+      "font-size": 28px,
+      "line-height": 40px,
+      "font-family": "LT Wave",
+    ),
+
+    "services": (
+      "font-size": 18px,
+      "line-height": 26px,
+      "font-family": "LT Wave",
+    ),
+    "b1": (
+      "font-size": 18px,
+      "line-height": 26px,
+      "font-family": "Roboto",
+    ),
+    "subtitle": (
+      "font-size": 18px,
+      "line-height": 26px,
+      "font-family": "Roboto",
+    ),
+  ),
+  "mobile": (
+    "h1": (
+      "font-size": 30px,
+      "line-height": 44px,
+      "font-family": "LT Wave",
+    ),
+    "h2": (
+      "font-size": 24px,
+      "line-height": 36px,
+      "font-family": "LT Wave",
+    ),
+    "subtitle": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "Roboto",
+    ),
+    "services": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "LT Wave",
+    ),
+    "b1": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "Roboto",
+    ),
+  ),
+  "mobile-sm": (
+    "h1": (
+      "font-size": 24px,
+      "line-height": 36px,
+      "font-family": "LT Wave",
+    ),
+    "h2": (
+      "font-size": 20px,
+      "line-height": 32px,
+      "font-family": "LT Wave",
+    ),
+    "services": (
+      "font-size": 16px,
+      "line-height": 24px,
+      "font-family": "LT Wave",
+    ),
+  ),
+);
+
+// Breakpoints
+$breakpoints: (
+  "mobile-sm": 320px,
+  "mobile": 480px,
+  "tablet": 768px,
+  "desktop": 1280px,
+);

@@ -1,0 +1,84 @@
+@use "../abstracts/mixins" as *;
+
+h1,
+.h1 {
+  @include typography("h1");
+  @include respond-to("tablet") {
+    @include typography("h1", "tablet");
+  }
+  @include respond-to("mobile") {
+    @include typography("h1", "mobile");
+  }
+  @include respond-to("mobile-sm") {
+    @include typography("h1", "mobile-sm");
+  }
+}
+
+h2,
+.h2 {
+  @include typography("h2");
+  @include respond-to("tablet") {
+    @include typography("h1", "tablet");
+  }
+  @include respond-to("mobile") {
+    @include typography("h2", "mobile");
+  }
+  @include respond-to("mobile-sm") {
+    @include typography("h2", "mobile-sm");
+  }
+}
+
+h3,
+.h3 {
+  @include typography("h2");
+}
+
+.services-text {
+  @include typography("services");
+  @include respond-to("tablet") {
+    @include typography("services", "tablet");
+  }
+  @include respond-to("mobile") {
+    @include typography("services", "mobile");
+  }
+  @include respond-to("mobile-sm") {
+    @include typography("services", "mobile-sm");
+  }
+}
+
+.b1 {
+  @include typography("b1");
+  @include respond-to("tablet") {
+    @include typography("b1", "tablet");
+  }
+  @include respond-to("mobile") {
+    @include typography("b1", "mobile");
+  }
+}
+
+.subtitle {
+  @include typography("subtitle");
+  @include respond-to("tablet") {
+    @include typography("subtitle", "tablet");
+  }
+  @include respond-to("mobile") {
+    @include typography("subtitle", "mobile");
+  }
+}
+
+.button-primary-text {
+  @include typography("primary-button");
+}
+.button-text {
+  @include typography("button");
+}
+.navigation-text {
+  @include typography("navigation");
+}
+
+.b2 {
+  @include typography("b2");
+}
+.b3 {
+  @include typography("b3");
+}

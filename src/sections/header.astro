@@ -1,0 +1,82 @@
+---
+import Logo from "../icons/logo.astro";
+import Phone from "../icons/phone.astro";
+import MobileNav from "../widgets/mobile-nav.astro";
+---
+
+<header class="center header wrapper">
+  <Logo class="logo" colorText="black" />
+
+  <div class="right">
+    <nav class="nav">
+      <ul>
+        <li><a href="#services" class="navigation-text">Услуги</a></li>
+        <li><a href="#work" class="navigation-text">Портфолио</a></li>
+        <li><a href="#work" class="navigation-text">Контакты</a></li>
+      </ul>
+    </nav>
+    <a class="btn contact button-text" href="tel:+7123456789">
+      <Phone color="#2f5b9c" />
+      Связаться
+    </a>
+    <MobileNav />
+  </div>
+</header>
+<style lang="scss">
+  @use "../styles/abstracts/mixins" as *;
+  @use "../styles/abstracts/variables" as *;
+
+  .header {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .right {
+      display: flex;
+      align-items: center;
+      @include respond-to("tablet") {
+        column-gap: 60px;
+      }
+      .contact {
+        border: 1px solid $color-blue;
+        padding: 12px 24px;
+        color: $color-blue;
+        @include respond-to("mobile") {
+          display: none;
+        }
+      }
+      .nav {
+        @include respond-to("tablet") {
+          display: none;
+        }
+        ul {
+          display: flex;
+          list-style-type: none;
+          li {
+            margin-right: 44px;
+            a {
+              text-decoration: none;
+              color: $color-dark;
+            }
+          }
+        }
+      }
+    }
+    .logo {
+      width: 265px;
+      height: 64px;
+      @include respond-to("tablet") {
+        width: 211px;
+        height: 50px;
+      }
+      @include respond-to("mobile") {
+        width: 211px;
+        height: 50px;
+      }
+      @include respond-to("mobile-sm") {
+        width: 169px;
+        height: 40px;
+      }
+    }
+  }
+</style>

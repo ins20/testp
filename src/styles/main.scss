@@ -1,0 +1,33 @@
+// Components
+@use "components/buttons";
+@use "components/typography";
+@use "abstracts/variables" as *;
+
+@font-face {
+  font-family: "LT Wave";
+  src: url("../../public/fonts/LTWave-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../public/fonts/Roboto-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  max-width: map-get($breakpoints, "desktop");
+  margin: 0 auto;
+}

@@ -1,0 +1,85 @@
+@use "variables" as *;
+
+// Media Queries
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "No value found for `#{$breakpoint}`. Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Typography
+@mixin typography($name, $device: "desktop") {
+  @if map-has-key(map-get($typography-vars, $device), $name) {
+    $style-map: map-get(map-get($typography-vars, $device), $name);
+
+    font-size: map-get($style-map, "font-size");
+    line-height: map-get($style-map, "line-height");
+    font-family: map-get($style-map, "font-family");
+  } @else {
+    @warn "No font size found for `#{$size}` in `#{$device}`. Available sizes are: #{map-keys(map-get($font-sizes, $device))}.";
+  }
+}
+
+//Button
+@mixin button-base {
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+@mixin step-animation($step, $percent) {
+  $previous-percent: $percent - 1;
+  .step:nth-child(#{$step}) {
+    .number {
+      animation: number#{$step} auto linear;
+      animation-timeline: scroll(root);
+    }
+    .text .title {
+      animation: title#{$step} auto linear;
+      animation-timeline: scroll(root);
+    }
+  }
+
+  @keyframes number#{$step} {
+    0% {
+      background-color: $color-gray-light;
+      color: $color-gray-medium;
+    }
+    #{$previous-percent}% {
+      background-color: $color-gray-light;
+      color: $color-gray-medium;
+    }
+    #{$percent}% {
+      background-color: $color-blue;
+      color: $color-white;
+    }
+    100% {
+      background-color: $color-blue;
+      color: $color-white;
+    }
+  }
+
+  @keyframes title#{$step} {
+    0% {
+      color: $color-gray-dark;
+    }
+    #{$previous-percent}% {
+      color: $color-gray-dark;
+    }
+    #{$percent}% {
+      color: $color-blue;
+    }
+    100% {
+      color: $color-blue;
+    }
+  }
+}

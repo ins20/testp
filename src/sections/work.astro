@@ -1,0 +1,224 @@
+---
+import Image from "astro/components/Image.astro";
+import truck from "../../public/images/truck.png";
+const steps = [
+  {
+    title: "Оставьте заявку на расчет",
+    description:
+      "Сделать это можно, позвонив по телефону, либо оставив данные в форме на нашем сайте. Наш менеджер свяжется с Вами и предоставит все необходимые Вам расчеты, в нужном формате",
+  },
+  {
+    title: "Обмен уставными документами, подписание договора",
+    description:
+      "В зависимости от политики Вашей компании, подписание договора может занять от 1 дня до 3 месяцев. Если у Вас сложный порядок проверки поставщиков, стоит заранее подготовить все документы",
+  },
+  {
+    title: "Обработка заявки, подбор транспорта",
+    description:
+      "Вы сообщаете нам основные характеристики вашего груза: вес, объем, размеры, стоимость (для страховки). Мы предлагаем Вам один или несколько вариантов отправки груза. Как правило варианты это сроки погрузки, выгрузки, стоимость",
+  },
+  {
+    title: "Оформление заявки",
+    description:
+      "После того, как был выбран один из предложенных вариантов, мы оформляем заявку. Для заполнения нам от Вас потребуются: адрес погрузки, тел. контактного лица на погрузке, адрес выгрузки, тел. конт. лица на выгрузке. Заполненную заявку мы направляем Вам на согласование и подписание",
+  },
+  {
+    title: "Машина встает под погрузку",
+    description:
+      "После того как была подписана заявка на перевозку, в оговоренные в ней сроки, машина встает под погрузку",
+  },
+  {
+    title: "Оплата перевозки",
+    description:
+      "Когда машина будет погружена, мы направляем Вам счет, на согласованную в заявке сумму. Оплата должна пройти по факту погрузки машины, до момента выгрузки",
+  },
+  {
+    title: "Груз доставлен",
+    description:
+      "Машина выгружается, водитель подписывает транспортные и товарные накладные (перечень и кол-во, требуемых к возврату док. оговаривается и согласовывается в заявке)",
+  },
+  {
+    title: "Отправка документов",
+    description:
+      "Мы направляем в Ваш адрес оригиналы документов: договор (при первой перевозке), заявки, счета, УПД, ТТН, ТН",
+  },
+];
+---
+
+<section id="work" class="work wrapper">
+  <div class="stepper">
+    <div class="left">
+      <h2>Как мы работаем</h2>
+      <button class="btn btn-md button-text btn-primary button-primary-text"
+        >Оставить заявку</button
+      >
+      <Image class="imgTruck" src={truck} alt={"truck"} />
+    </div>
+    <div class="right">
+      <div class={"progress-background"}></div>
+      <div class={"progress"}></div>
+      {
+        steps.map(({ title, description }, index) => (
+          <div class="step">
+            <div class="number subtitle">0{index + 1}</div>
+            <div class="text">
+              <p class="title services-text">{title}</p>
+              <p class="description">{description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles/abstracts/variables" as *;
+  @use "../styles/abstracts/mixins" as *;
+
+  .stepper {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+    @include respond-to("tablet") {
+      padding: 0 20px;
+    }
+    @include respond-to("mobile") {
+      flex-direction: column;
+    }
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+
+    .imgTruck {
+      margin-top: 80px;
+      animation: fadeTruck auto linear;
+      animation-timeline: scroll(root);
+      @include respond-to("tablet") {
+        width: 300px;
+        height: 300px;
+        margin-left: -20px;
+      }
+      @include respond-to("mobile") {
+        display: none;
+      }
+    }
+  }
+
+  @keyframes fadeTruck {
+    0% {
+      opacity: 0.5;
+    }
+    87.1% {
+      opacity: 0.5;
+    }
+    87.2% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    .progress-background {
+      width: 2px;
+      height: 95%;
+      position: absolute;
+      background-color: $color-gray-light;
+      left: 22px;
+      z-index: -1;
+    }
+    .progress {
+      width: 2px;
+      height: 0%;
+      position: absolute;
+      background-color: $color-blue;
+      top: 0;
+      left: 22px;
+      animation: scaleProgress auto linear;
+      animation-timeline: scroll(root);
+    }
+    .step {
+      display: flex;
+      column-gap: 24px;
+      .number {
+        background-color: $color-gray-light;
+        color: $color-gray-medium;
+        width: 46px;
+        height: 46px;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .text {
+        width: 596px;
+        @include respond-to("tablet") {
+          width: 290px;
+        }
+        @include respond-to("mobile") {
+          width: 210px;
+        }
+        @include respond-to("mobile-sm") {
+          width: 200px;
+        }
+        .title {
+          color: $color-gray-dark;
+        }
+        .description {
+          margin-top: 12px;
+          font-family: Roboto;
+          font-size: 14px;
+          font-weight: light;
+        }
+      }
+    }
+
+    .step:nth-child(3) .number {
+      background-color: $color-blue;
+      color: $color-white;
+    }
+    .step:nth-child(3) .text .title {
+      color: $color-blue;
+    }
+
+    @include step-animation(4, 73.7);
+    @include step-animation(5, 78.2);
+    @include step-animation(6, 82.1);
+    @include step-animation(7, 87.2);
+    @include step-animation(8, 90.8);
+    @include step-animation(9, 94.5);
+    @include step-animation(10, 98.9);
+  }
+  .work {
+    padding: 80px 0;
+  }
+  button {
+    margin-top: 46px;
+    margin-bottom: 42px;
+  }
+
+  @keyframes scaleProgress {
+    69% {
+      height: 0%;
+    }
+    100% {
+      height: 95%;
+    }
+  }
+</style>
+
+<script>
+  let totalHeight = document.body.scrollHeight;
+
+  window.addEventListener("scroll", function () {
+    const scrollPercent =
+      (window.pageYOffset / (totalHeight - window.innerHeight)) * 100;
+  });
+</script>
